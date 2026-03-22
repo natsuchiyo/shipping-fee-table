@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+}
+
+button {
+    font: inherit;
+}
+
+@page {
+    size: A4 landscape;
+    margin: 0;
+}
+
+.page {
+    box-sizing: border-box;
+    width: 297mm;
+    height: 210mm;
+    padding: 20mm;
+}
+
+.page:not(:last-child) {
+    break-after: page;
+}
+
+@media print {
+    .site-header {
+        display: none;
+    }
+
+    .page {
+        margin: 0;
+    }
+}
+
+@media screen {
+    html {
+        background-color: #bbb;
+    }
+
+    body {
+        padding-top: 61px;
+    }
+
+    header {
+        height: 60px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .page {
+        margin: 20px auto;
+        background-color: #fff;
+        box-shadow: 0 0 8px #666;
+    }
+}

@@ -1,0 +1,26 @@
+thead {
+    text-align: center;
+}
+
+#shipped-table-body td {
+    vertical-align: middle;
+}
+
+input.addressee {
+    display: inline-block;
+    max-width: 500px;
+}
+
+td.item {
+    width: 300px;
+}
+
+input.shippingFee {
+    display: inline-block;
+    width: 80px;
+}
+
+input.note {
+    display: inline-block;
+    width: 120px;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>出荷送料一覧表作成</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="index.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="yamatoFeeMap.js" defer></script>
+    <script src="niigataFeeMap.js" defer></script>
+    <script src="yamatoUtils.js" defer></script>
+    <script src="niigataUtils.js" defer></script>
+    <script src="utils.js" defer></script>
+    <script src="index.js" defer></script>
+</head>
+
+<body class="container-sm">
+    <div class="vstack gap-4">
+        <h1 class="display-6 fs-3 text-body-secondary">出荷送料一覧表作成</h1>
+        <form id="csvForm" class="vstack gap-3">
+            <div>
+                <label for="yamatoCsvFile" class="form-label">ヤマト運輸CSV</label>
+                <input type="file" name="yamatoCsvFile" id="yamatoCsvFile" class="form-control" accept=".csv">
+            </div>
+            <div>
+                <label for="niigataCsvFile" class="form-label">新潟運輸CSV</label>
+                <input type="file" name="niigataCsvFile" id="niigataCsvFile" class="form-control" accept=".csv">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">CSV読み込み</button>
+            </div>
+        </form>
+
+        <div class="vstack gap-3">
+            <table class="table table-hover table-sm">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="addressee-column">送り先</th>
+                        <th scope="col" class="item-column">品物</th>
+                        <th scope="col" class="shippingFee-column">送料</th>
+                        <th scope="col" class="note-column">備考</th>
+                    </tr>
+                </thead>
+                <tbody id="shipped-table-body" class="table-group-divider">
+                </tbody>
+            </table>
+            <div>
+                <button id="print-button" class="btn btn-primary">一覧表作成</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
