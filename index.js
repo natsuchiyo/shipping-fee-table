@@ -30,8 +30,26 @@ const createInputTd = (inputName, rowIndex) => {
     input.dataset.row = rowIndex;
     input.value = shippedDictList[rowIndex][inputName];
 
-    console.log('↓-------------------------------------------------------------------------');
-    console.log(rowIndex, inputName, shippedDictList);
+
+    input.addEventListener('change', editshippedData);
+
+    td.appendChild(input);
+
+    return td;
+};
+
+
+
+
+const createPersonInputTd = (rowIndex) => {
+
+    const td = document.createElement('td');
+    const input = document.createElement('input');
+    input.name = "person";
+    input.setAttribute('list', "person-input");
+    input.type = 'text';
+    input.className = 'form-control form-control-sm person';
+    input.dataset.row = rowIndex;
 
     input.addEventListener('change', editshippedData);
 
@@ -50,6 +68,8 @@ const createShippedTr = (rowIndex) => {
     tr.appendChild(createCheckboxTd());
 
     tr.appendChild(createInputTd("addressee", rowIndex));
+
+    tr.appendChild(createPersonInputTd(rowIndex));
 
     const itemTd = document.createElement('td');
     itemTd.textContent = shippedDictList[rowIndex].item;
